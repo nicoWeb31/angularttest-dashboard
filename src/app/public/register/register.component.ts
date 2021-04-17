@@ -1,6 +1,7 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { AuthService } from 'src/app/services/auth.service';
 import { environment } from 'src/environments/environment';
 
 @Component({
@@ -15,7 +16,7 @@ export class RegisterComponent implements OnInit {
     password: string = '';
     passwordConfirm: string = '';
 
-    constructor(private http: HttpClient, private router: Router) {}
+    constructor(private http: HttpClient, private router: Router, private serv : AuthService) {}
 
     ngOnInit(): void {}
 
@@ -23,17 +24,17 @@ export class RegisterComponent implements OnInit {
 
     submit(): void {
 
-
-        this.http.post(`${environment.api}/register`, {
+        const formValue = {
             first_name: this.firstName,
             last_name: this.lastName,
             mail: this.mail,
             password: this.password,
             passwordConfirm: this.passwordConfirm,
-            // optionRequete
-        }).subscribe(res=>{
-          console.log(res)
-          this.router.navigate(['/login'])
+        }
+
+        this.serv.register(formValue).subscribe(()=>{
+            this.router.navigate(['/login'])
+
         })
     }
 }

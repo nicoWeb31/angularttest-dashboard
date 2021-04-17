@@ -1,11 +1,11 @@
 
-<main class="form-signin" (submit)="login()" >
-    <form>
+<main class="form-signin"  >
+    <form [formGroup]="form" (submit)="login()">
         <h1 class="h3 mb-3 fw-normal">signi-in</h1>
 
 
         <input
-            formControlName="email"
+            formControlName="mail"
             name="mail"
             type="email"
             class="form-control"
