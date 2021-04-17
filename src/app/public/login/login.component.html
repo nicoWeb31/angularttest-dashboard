@@ -1,20 +1,21 @@
 
 <main class="form-signin" (submit)="login()" >
     <form>
-        <h1 class="h3 mb-3 fw-normal">Register</h1>
+        <h1 class="h3 mb-3 fw-normal">signi-in</h1>
 
 
         <input
-            [(ngModel)]="mail"
+            formControlName="email"
             name="mail"
             type="email"
             class="form-control"
             placeholder="name@example.com"
+
             required
         />
 
         <input
-            [(ngModel)]="password"
+            formControlName="password"
             name="password"
             type="password"
             class="form-control"
