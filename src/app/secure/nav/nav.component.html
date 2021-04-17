@@ -6,7 +6,7 @@
     <nav class="my-2 my-md-0 mr-md-3">
 
             <a class="p2 text-white" [routerLink]="['/profile']"  >{{user?.first_name}} {{ user?.last_name }}</a>
-            <a class="p2 text-white" [routerLink]="['/login']"  >Sign out</a>
+            <a class="p2 text-white" [routerLink]="['/login']"  (click)='logout()' >Sign out </a>
 
 
     </nav>
