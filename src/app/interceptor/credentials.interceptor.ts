@@ -13,7 +13,8 @@ export class CredentialsInterceptor implements HttpInterceptor {
   constructor() {}
 
   intercept(request: HttpRequest<unknown>, next: HttpHandler): Observable<HttpEvent<unknown>> {
+    console.log('req interceptor')
     const req = request.clone({withCredentials : true})
-    return next.handle(request);
+    return next.handle(req);
   }
 }
